@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Box, Button, Center, FormControl, FormLabel, Input, Link, Heading, VStack } from '@chakra-ui/react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,41 +24,56 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
-        <div className="mb-4">
-          <label className="block text-gray-700">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded mt-4"
-        >
+    <Center height="100vh" bg="gray.50">
+      <Box
+        p={6}
+        borderRadius="md"
+        boxShadow="md"
+        maxW="md"
+        w="full"
+      >
+        <Heading as="h2" size="lg" mb={6} textAlign="center">
           Login
-        </button>
-        <div className="flex justify-between mt-4">
-          <a href="/api/auth/google" className="text-blue-500">Login with Google</a>
-          <a href="/api/auth/facebook" className="text-blue-500">Login with Facebook</a>
-        </div>
-      </form>
-    </div>
+        </Heading>
+        <form onSubmit={handleSubmit}>
+          <VStack spacing={4} align="stretch">
+            <FormControl id="email" isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </FormControl>
+            <FormControl id="password" isRequired>
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </FormControl>
+            <Button
+              type="submit"
+              colorScheme="blue"
+              size="lg"
+              mt={4}
+              w="full"
+            >
+              Login
+            </Button>
+            <VStack spacing={2} mt={4}>
+              <Link color="blue.500" href="/api/auth/google">
+                Login with Google
+              </Link>
+              <Link color="blue.500" href="/api/auth/facebook">
+                Login with Facebook
+              </Link>
+            </VStack>
+          </VStack>
+        </form>
+      </Box>
+    </Center>
   );
 };
 

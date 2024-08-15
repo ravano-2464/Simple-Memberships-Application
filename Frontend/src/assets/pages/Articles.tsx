@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Box, Heading, List, ListItem, Container } from '@chakra-ui/react';
 
 const Articles = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -14,14 +15,20 @@ const Articles = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Articles</h1>
-      <ul>
-        {articles.map((article, index) => (
-          <li key={index} className="mb-4">{article}</li>
-        ))}
-      </ul>
-    </div>
+    <Container maxW="container.lg" p={4}>
+      <Heading as="h1" size="2xl" mb={6}>
+        Articles
+      </Heading>
+      <Box>
+        <List spacing={4}>
+          {articles.map((article, index) => (
+            <ListItem key={index} p={2} borderWidth={1} borderRadius="md" boxShadow="md">
+              {article}
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </Container>
   );
 };
 
