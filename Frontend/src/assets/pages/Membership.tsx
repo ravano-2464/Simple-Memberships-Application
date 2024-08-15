@@ -1,5 +1,5 @@
 import React from 'react';
-import MembershipComponent from '../assets/components/Membership';
+import MembershipComponent from '../components//Membership';
 
 const Membership = () => {
   return (
