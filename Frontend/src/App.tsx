@@ -1,11 +1,12 @@
+// App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './assets/components/Navbar';
-import Home from './pages/Home';
-import Articles from './pages/Articles';
-import Videos from './pages/Videos';
-import Membership from './pages/Membership';
-import Login from './pages/Login';
+import Home from './assets/pages/Home';
+import Articles from './assets/pages/Articles';
+import Videos from './assets/pages/Videos';
+import Membership from './assets/pages/Membership';
+import Login from './assets/pages/Login';
 
 const App = () => {
   return (
